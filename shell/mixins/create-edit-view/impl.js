@@ -177,6 +177,8 @@ export default {
     },
 
     async actuallySave(url) {
+      console.log('this.isCreate=', this.isCreate);
+      console.log('actuallySave this.schema=', this.schema);
       if ( this.isCreate ) {
         url = url || this.schema.linkFor('collection');
         const res = await this.value.save({ url });

@@ -67,7 +67,7 @@ export default {
       this.value.spec.volumeMode = 'Block';
       this.value.spec.accessModes = ['ReadWriteMany'];
     }
-
+    console.log('this.value', this.value);
     const storage = this.value?.spec?.resources?.requests?.storage || null;
     const imageId = get(this.value, `metadata.annotations."${ HCI_ANNOTATIONS.IMAGE_ID }"`);
     const source = !imageId ? 'blank' : 'url';

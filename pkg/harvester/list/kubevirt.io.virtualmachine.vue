@@ -96,7 +96,10 @@ export default {
 
     const hash = await allHash(_hash);
 
+    console.log('🚀 ~ fetch ~ hash:', hash);
+
     this.allVMs = hash.vms;
+    console.log('🚀 ~ fetch ~ this.allVMs:', this.allVMs);
     this.allNodeNetworks = hash.nodeNetworks || [];
     this.allClusterNetworks = hash.clusterNetworks || [];
   },

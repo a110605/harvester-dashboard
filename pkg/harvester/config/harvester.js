@@ -31,6 +31,9 @@ import {
   FINGERPRINT,
   IMAGE_PROGRESS,
   SNAPSHOT_TARGET_VOLUME,
+  // VM_SCHEDULE_RETAIN,
+  // VM_SCHEDULE_AUTO_RESUME,
+  // VM_SCHEDULE_CRON
 } from './table-headers';
 
 import { IF_HAVE } from '@shell/store/type-map';
@@ -418,6 +421,7 @@ export function init($plugin, store) {
 
   basicType(
     [
+      HCI.SCHEDULE_VM_BACKUP,
       HCI.BACKUP,
       HCI.SNAPSHOT,
       HCI.VM_SNAPSHOT,
@@ -460,6 +464,19 @@ export function init($plugin, store) {
     route:      {
       name:   `${ PRODUCT_NAME }-c-cluster-resource`,
       params: { resource: TEMPLATE }
+    },
+    exact: false
+  });
+
+  configureType(HCI.SCHEDULE_VM_BACKUP, { showListMasthead: false, showConfigView: false });
+  virtualType({
+    labelKey:   'harvester.schedule.label',
+    name:       HCI.SCHEDULE_VM_BACKUP,
+    namespaced: true,
+    weight:     201,
+    route:      {
+      name:   `${ PRODUCT_NAME }-c-cluster-resource`,
+      params: { resource: HCI.SCHEDULE_VM_BACKUP }
     },
     exact: false
   });

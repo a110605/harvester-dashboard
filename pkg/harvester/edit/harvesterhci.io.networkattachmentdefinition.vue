@@ -16,6 +16,7 @@ const AUTO = 'auto';
 const MANUAL = 'manual';
 
 export default {
+  name:       'NetworkAttachMentDefinitionEdit',
   components: {
     Tab,
     Tabbed,

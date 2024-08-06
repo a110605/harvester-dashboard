@@ -33,7 +33,6 @@ export default {
 
     this.rows = hash.rows;
     this.settings = hash.settings;
-
     if (this.$store.getters[`${ inStore }/schemaFor`](HCI.SETTING)) {
       const backupTargetResource = hash.settings.find( O => O.id === 'backup-target');
       const isEmpty = this.getBackupTargetValueIsEmpty(backupTargetResource);
@@ -85,6 +84,11 @@ export default {
       }
 
       return out;
+    },
+    getRow(row) {
+      console.log('🚀 ~ getRow ~ row:', row);
+
+      return row.status && row.status.source;
     }
   },
 
@@ -220,7 +224,7 @@ export default {
         <td>
           <span>
             <n-link
-              v-if="row.status && row.status.source"
+              v-if="getRow(row)"
               :to="row.detailLocation"
             >
               {{ row.nameDisplay }}

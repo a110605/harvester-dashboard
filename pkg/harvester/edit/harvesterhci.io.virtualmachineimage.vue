@@ -65,8 +65,9 @@ export default {
     }
 
     if (!this.value.metadata.name) {
-      this.value.metadata.generateName = 'image-';
+      this.value.metadata.generateName = 'andy-image-';
     }
+    console.log('image edit this.value=', this.value);
 
     return {
       url:      this.value.spec.url,

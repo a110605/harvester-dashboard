@@ -1085,7 +1085,7 @@ export default class Resource {
     if ( this.metadata?.resourceVersion ) {
       this.metadata.resourceVersion = `${ this.metadata.resourceVersion }`;
     }
-
+    console.log('_save this.type=', this.type);
     if ( !opt.url ) {
       if ( forNew ) {
         const schema = this.$getters['schemaFor'](this.type);

@@ -81,6 +81,7 @@ export default {
   },
 
   data() {
+    console.log('Masthead this.$route=', this.$route);
     const params = { ...this.$route.params };
 
     const formRoute = { name: `${ this.$route.name }-create`, params };
